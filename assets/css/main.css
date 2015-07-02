@@ -995,6 +995,18 @@
 			opacity: 0.5;
 		}
 
+
+        input[type=text] {
+            width: 20em; 
+            display:inline-block; 
+        }
+        button {
+            width: 10em; 
+            height: 4em;
+            display:inline-block; 
+        }
+
+
 		@media screen and (max-width: 480px) {
 
 			input[type="submit"],
