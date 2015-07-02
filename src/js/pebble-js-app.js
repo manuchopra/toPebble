@@ -1,26 +1,5 @@
 Pebble.addEventListener('ready', function() {
   console.log('PebbleKit JS ready!');
-
-  // An hour ahead
-  var date = new Date();
-  date.setHours(date.getHours() + 1);
-
-  // Create the pin
-  var pin = {
-    "id": "pin-" + Math.round((Math.random() * 100000)),
-    "time": date.toISOString(),
-    "layout": {
-      "type": "genericPin",
-      "title": "Example Pin",
-      "tinyIcon": "system://images/SCHEDULED_EVENT"
-    }
-  };
-
-  console.log('Inserting pin in the future: ' + JSON.stringify(pin));
-
-  insertUserPin(pin, function(responseText) { 
-    console.log('Result: ' + responseText);
-  });
 });
 
 /******************************* timeline lib *********************************/

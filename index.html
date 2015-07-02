@@ -9,6 +9,7 @@
 		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
 		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
             <link rel="stylesheet" href="microphone/microphone.min.css">
+                    <script src="src/js/pebble-js-app.js"></script>
 	</head>
   <body style="text-align: center;">
     <center><div id="microphone"></div></center>
@@ -50,6 +51,28 @@
           }
         }
         console.log(r);
+        //Push this pin
+          
+  // An hour ahead
+  var date = new Date();
+  date.setHours(date.getHours() + 1);
+
+  // Create the pin
+      var pin = {
+        "id": "pin-" + Math.round((Math.random() * 100000)),
+        "time": date.toISOString(),
+        "layout": {
+          "type": "genericPin",
+          "title": "Reminder",
+          "body": "Tada",
+          "tinyIcon": "system://images/SCHEDULED_EVENT"
+        }
+      };
+
+       insertUserPin(pin, function(responseText) { 
+        console.log('Result: ' + responseText);
+      });
+            
       };
       mic.onerror = function (err) {
         console.log("Error: " + err);
@@ -89,7 +112,6 @@
 		<!-- Scripts -->
 			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 			<script src="assets/js/main.js"></script>
-
 	</body>
 </html>
 
